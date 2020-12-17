@@ -1,4 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+
+packages = find_packages(
+    where='.',
+    include=['ram-utils*']
+)
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
@@ -11,13 +16,18 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/shreeramsigdel77/ram-utils.git",
-    packages=setup.find_packages(),
+    packages=packages,
     classfifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    install_requires=[
+        'numpy>=1.18.0',
+        'opencv-python>=4.2.0.0',
+        'pylint>=2.4.2',
+    ],
+    python_requires='>=3.7',
 
     
 )
