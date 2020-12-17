@@ -8,7 +8,7 @@ class ImageHandler:
         except IOError as io:
             print(io)
 
-    def show_img(self, image):
+    def show_img(self, image)-> None:
         try:
             cv2.imshow("Preview", image)
             cv2.waitKey(500)
@@ -16,11 +16,11 @@ class ImageHandler:
         except IOError as io:
             print(io)
 
-    def save_img(self, image, filename):
+    def save_img(self, image, filename:str)->None:
         """[saves images]
 
         Args:
-            image ([type]): [Image to be saved]
+            image ([]): [Image to be saved]
             filename ([string]): [name of a image]
         """
         try:
