@@ -26,6 +26,12 @@ setup(
         'numpy>=1.18.0',
         'opencv-python>=4.2.0.0',
         'pylint>=2.4.2',
+        'pandas>=1.0.4',
+        'Pillow>=6.1.0',
+        'pycocotools>=2.0.0',
+        'matplotlib',
+        "albumentations @ git+https://github.com/albumentations-team/albumentations.git",
+        # "kkimgaug @ git+https://github.com/kazukingh01/kkimgaug.git",
     ],
     python_requires='>=3.7',
 
