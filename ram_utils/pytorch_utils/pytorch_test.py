@@ -39,7 +39,7 @@ good_test_dir = "/home/pasonatech/workspace/deepNN_py/data_set/test/good"
 
 # ckp_path = "/home/pasonatech/workspace/deepNN_py/carpet_script/bw_convert_train/model_dir/checkpoint_799.pth"
 
-ckp_path = "/home/pasonatech/workspace/deepNN_py/carpet_script/bw_convert_train/aug_backup4-21/model_dir/checkpoint_799.pth"
+ckp_path = "/home/pasonatech/workspace/deepNN_py/carpet_script/bw_convert_train/model_dir/checkpoint_final.pth"
 learning_rate = 1e-3
 
 img_transform = transforms.Compose([
@@ -125,7 +125,7 @@ if os.path.exists(ckp_path):
 summary(model,(3,1024,1024))
 
 #load one image at a time:
-dir_name =good_test_dir
+dir_name =ano_validation
 
 for i in tqdm(sorted(os.listdir(dir_name))):
     # print(i)
@@ -147,7 +147,7 @@ for i in tqdm(sorted(os.listdir(dir_name))):
         all_inf_loss.append(val_loss)
 
         pic = output.cpu().detach()
-        preview_img(pic,filename,os.path.join(inference_test_data,"good_test_data"))
+        preview_img(pic,filename,os.path.join(inference_test_data,"anomaly_val_data"))
     # print(all_inf_loss)
 
 
