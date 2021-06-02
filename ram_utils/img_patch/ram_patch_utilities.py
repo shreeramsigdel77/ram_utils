@@ -63,5 +63,5 @@ class Ram_Patch_Utils:
 
 #use case
 patch_img = Ram_Patch_Utils()
-patch_img.ram_patch_img("",16)
+patch_img.ram_patch_img("/home/nabu/workspace/ram_utils/ram_utils/drop-original.png",16)
 patch_img.ram_patch_merge_img()

@@ -29,6 +29,12 @@ img_inference = "/home/nabu/workspace/pytorch_env/deepNN_py/data_set/anomoly_val
 
 # input_img = "/home/nabu/workspace/ram_utils/ram_utils/drop-original.png"
 # img_inference = "/home/nabu/workspace/ram_utils/ram_utils/dropout.png"
+dir_img_name = "000"
+img_number = "166"
+input_img = f"/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/patch_images/color/{dir_img_name}/{img_number}.png"
+img_inference = f"/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/patch_inference_img/color/{dir_img_name}/{img_number}.png"
+
+
 import cv2
 import numpy as np
 import os
@@ -44,8 +50,8 @@ def subtract_image(img1,img2,option:str="None"):
     
     os.path.isfile(img1)
     os.path.isfile(img2)
-    img1 = cv2.imread(input_img)
-    img2 = cv2.imread(img_inference)
+    img1 = cv2.imread(input_img,2)
+    img2 = cv2.imread(img_inference,2)
     # diff = cv2.subtract(img1, img2)
     diff = cv2.absdiff(img2, img1)
     if option == 'grayscale':
@@ -55,19 +61,20 @@ def subtract_image(img1,img2,option:str="None"):
 
     #threshhold
     # diff[diff>100]=0
-    diff[diff<50]=0
+    diff[diff>20]=255
    
     result = not np.any(diff) #returns false when diff is all zero and with not it will inverse to true
     
     cv2.imwrite("difference1.png",diff)
     cv2.imshow("Preview_result", diff)
-    cv2.waitKey(2000)
+    cv2.waitKey(0)
     # cv2.imshow("Preview1", diff)
     # cv2.waitKey(0)
     # return diff
+    print("Done")
 
 subtract_image(input_img,img_inference,)
-# exit()
+exit()
 
 def crop_img(img_path:str,total_number:int,output_dir:str):
     img =cv2.imread(img_path,)
