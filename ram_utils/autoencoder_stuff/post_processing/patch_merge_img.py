@@ -79,6 +79,8 @@ patch_img = Ram_Patch_Utils()
 input_img_dir = "/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/path_calcualtion/patch_img_differences"
 output_dir="/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/path_calcualtion/difference_img_patched"
 
+input_img_dir = "/home/pasonatech/workplace_new/ram_utils/ram_utils/autoencoder_stuff/merge_infer_dropout_section"
+output_dir = "/home/pasonatech/workplace_new/ram_utils/ram_utils/autoencoder_stuff/patch_infer_diff_back_256"
 
 list_datatype_directory = sorted(os.listdir(input_img_dir))
 for dir_type in list_datatype_directory:
@@ -103,5 +105,5 @@ for dir_type in list_datatype_directory:
         # print(output_save_dir)
         # exit()
         # print(each_dir)
-        patch_img.ram_patch_merge_img(input_dir=each_dir,output_dir=output_save_dir)
+        patch_img.ram_patch_merge_img(input_dir=each_dir,output_dir=output_save_dir,patch_height=256,patch_width=256)
     # print(output_save_dir)
