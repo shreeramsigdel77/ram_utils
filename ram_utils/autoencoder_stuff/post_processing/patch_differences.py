@@ -3,12 +3,12 @@ import os
 import numpy as np
 
 
-def subtract_image(img1,img2,output,option:str="None"):
+def subtract_image(img1,img2,output:str=None,option:str=None):
     
     os.path.isfile(img1)
     os.path.isfile(img2)
-    img1 = cv2.imread(img1,2)
-    img2 = cv2.imread(img2,2)
+    img1 = cv2.imread(img1,0)
+    img2 = cv2.imread(img2,0)
     # diff = cv2.subtract(img1, img2)
     diff = cv2.absdiff(img2, img1)
     if option == 'grayscale':
@@ -18,13 +18,14 @@ def subtract_image(img1,img2,output,option:str="None"):
 
     #threshhold
     # diff[diff>100]=0
-    diff[diff>20]=255
+    # diff[diff>60]=255
    
     result = not np.any(diff) #returns false when diff is all zero and with not it will inverse to true
-    print(output)
-    cv2.imwrite(output,diff)
-    # cv2.imshow("Preview_result", diff)
-    # cv2.waitKey(0)
+    # print(output)
+    if output is not None:
+        cv2.imwrite(output,diff)
+    cv2.imshow("Preview_result", diff)
+    cv2.waitKey(0)
     # cv2.imshow("Preview1", diff)
     # cv2.waitKey(0)
     # return diff
@@ -42,6 +43,20 @@ input_data = "/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_conver
 input_inference_data = "/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/path_calcualtion/aug_inference/aug_img/aug_inference_data"
 output_dir = "/home/nabu/workspace/pytorch_env/deepNN_py/carpet_script/bw_convert_train/path_calcualtion/aug_inference/aug_img"
 
+
+
+
+infer_img = "/home/pasonatech/workplace_new/ram_utils/ram_utils/autoencoder_stuff/patch_images/color/011/6.png"
+
+output_img = "/home/pasonatech/workplace_new/ram_utils/ram_utils/autoencoder_stuff/inference_results/color/011/6/1b.png"
+
+output_img1 = "/home/pasonatech/workplace_new/ram_utils/ram_utils/autoencoder_stuff/inference_results/color/011/6/0a.png"
+
+subtract_image(infer_img,output_img,)
+
+subtract_image(infer_img,output_img1,)
+
+exit()
 
 list_datatype_directory = sorted(os.listdir(input_data))
 for dir_type in list_datatype_directory:
