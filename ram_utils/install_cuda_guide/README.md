@@ -73,7 +73,7 @@ It will install PyTorch and TensorFlow. To check if they are working: Open pytho
 torch.cuda.is_available()
 If it returns True, the torch is able to use GPU. Check for TensorFlow now. If the below command shows GPU name then Tensorflow is working with GPU as well.
 print (tf.test.gpu_device_name())
-Now, nvidia-smi, nvcc — version both would work, and in fact, torch and Tensorlfow are able to use GPUs as well. Stay tuned for how to train deep learning models on GPU using docker.
+Now, ``` nvidia-smi ```, ``` nvcc — version ``` both would work, and in fact, torch and Tensorlfow are able to use GPUs as well. Stay tuned for how to train deep learning models on GPU using docker.
 
 
 
